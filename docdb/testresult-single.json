@@ -1,0 +1,44 @@
+{
+    "patientId": 1,
+    "results": "COVID-19 Positive",
+    "assigner": {
+        "display": "Acme Healthcare"
+    },
+
+    "specimenId": "022-988-9013-0",
+    "accountNumber": "90000999",
+    "labLocation": {
+        "nameLine1": "LabCorp Test Master",
+        "nameLine2": "Test Account",
+        "streetAddress": "5450 Millstream Road",
+        "city": "MCLEANSVILLE",
+        "state": "NC",
+        "postalCode": "27301"        
+    },
+
+
+    "patientDetails": {
+        "patientId": 1,
+        "gender": "M",
+        "dob": "03/15/1959"
+    },
+
+    "specimenDetails": {
+        "collectedDate": "01/22/2021",
+        "receivedDate": "01/22/2021",
+        "enteredDate": "01/22/2021",
+        "reportedDate": "01/22/2021"        
+    },
+
+    "clinicalInfo": "NOT DETECTED",
+
+    "orderedItems": [
+        {
+            "test": "SARS-CoV-2",
+            "result": "Not Detected",
+            "reference": " This nucleic acid amplification test was developed and its performance characteristics determined by LabCorp Laboratories. Nucleic acid amplification tests include RT-PCR and TMA. This test has not been FDA cleared or approved. This test has been authorized by FDA under an Emergency Use Authorization (EUA). This test is only authorized for the duration of time the declaration that circumstances exist justifying the authorization of the emergency use of in vitro diagnostic tests for detection of SARS-CoV-2 virus and/or diagnosis of COVID-19 infection under section 564(b)(1) of the Act, 21 U.S.C. 360bbb-3(b) (1), unless the authorization is terminated or revoked sooner. When diagnostic testing is negative, the possibility of a false negative result should be considered in the context of a patient's recent exposures and the presence of clinical signs and symptoms consistent with COVID-19. An individual without symptoms of COVID-19 and who is not shedding SARS-CoV-2 virus would expect  to have a negative (not detected) result in this assay.",
+            "lab": "01"
+        }
+    ]
+
+}

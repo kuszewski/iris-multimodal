@@ -1,0 +1,32 @@
+{
+	"folders": {},
+	"connections": {
+		"iris-178b2e19299-129133aac5e0d1e8": {
+			"provider": "generic",
+			"driver": "iris",
+			"name": "multimodel",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "1972",
+				"database": "multimodel",
+				"url": "jdbc:IRIS://localhost:1972/multimodel",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

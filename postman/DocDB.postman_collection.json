@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "1ebf2a7c-4ad0-4625-969e-452397c23d3d",
+		"name": "DocDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All DocDB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "curl -i -X GET -H \"Content-Type: application/json\" http://localhost:57774/api/docdb/v1/namespaceName"
+			},
+			"response": []
+		},
+		{
+			"name": "Create DocDB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "curl -i -X POST -H \"Content-Type: application/json\" \nhttp://localhost:57774/api/docdb/v1/namespaceName/db/databaseName ?type= documentType& resource= databaseResource"
+			},
+			"response": []
+		},
+		{
+			"name": "Get DocDB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "curl -i -X GET -H \"Content-Type: application/json\" \nhttp://localhost:57774/api/docdb/v1/namespaceName/db/databaseName"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete DocDB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "curl -i -X DELETE -H \"Content-Type: application/json\" \nhttp://localhost:57774/api/docdb/v1/namespaceName/db/databaseName"
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Doc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "curl -i -X POST -H \"Content-Type: application/json\" \nhttp://localhost:57774/api/docdb/v1/namespaceName/doc/databaseName/  Body is JSON document"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Doc by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:52773/api/docdb/v1/Multimodel/doc/Examinations/id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"api",
+						"docdb",
+						"v1",
+						"Multimodel",
+						"doc",
+						"Examinations",
+						"id"
+					]
+				},
+				"description": "curl -i -X DELETE -H \"Content-Type: application/json\" \nhttp://localhost:57774/api/docdb/v1/namespaceName/doc/databaseName/id\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Property - PatientId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "http://{{Server}}:{{Port}}/api/docdb/v1/{{Namespace}}/prop/Colors/patientId?type=%Integer&path=patientDetails.patientId"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Property - ClinicalInfo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "http://{{Server}}:{{Port}}/api/docdb/v1/{{Namespace}}/prop/Colors/patientId?type=%Integer&path=patientDetails.patientId"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

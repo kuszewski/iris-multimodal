@@ -1,0 +1,4 @@
+CREATE TABLE demo.Cohort (
+	ID INT PRIMARY KEY IDENTITY (1,1),
+	description VARCHAR(50)
+);
