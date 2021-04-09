@@ -11,7 +11,9 @@ mvn install:install-file -Dfile=c:\InterSystems\IRIS\dev\java\lib\JDK18\intersys
 ```
 You need to do this for the JDBC and the XEP jar files.
 
-You might want to read the SUMMIT_README file in this directory for a bit more info on the basic concept
+You might want to read the SUMMIT_README file in this directory for a bit more info on the basic concept.
+
+
 
 ## Demo the Object Model
 1. Start VS Code in this direction. 
