@@ -2,19 +2,24 @@
 
 ## Before you begin
 
-Create a Namespace - `Multimodel` - you won't need Interoperability to uncheck that
-This repository is a Java maven application.  You'll need both java 8 and maven installed.
+Create a Namespace - `Multimodel` - you won't need Interoperability so uncheck that. 
+This repository is a Java maven application.  You'll need both Java 8 and maven installed.
 
 You also need to have the InterSystems IRIS Java client libraries as part of your maven cache.  If you haven't done so already, this can be done by a command similar to this:
 ```
-mvn install:install-file -Dfile=c:\InterSystems\IRIS\dev\java\lib\JDK18\intersystems-jdbc-3.1.0.jar -DgroupId=com.intersystems -DartifactId=intersystems-jdbc -Dversion=3.1.0 -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile="c:\InterSystems\IRIS\dev\java\lib\JDK18\intersystems-jdbc-3.1.0.jar" -DgroupId="com.intersystems" -DartifactId=intersystems-jdbc -Dversion="3.1.0" -Dpackaging=jar -DgeneratePom=true
 ```
 You need to do this for the JDBC and the XEP jar files.
+
+Note that on a really recent release (such as 2021.2), the paths will look slightly different:
+```
+mvn install:install-file -Dfile="c:\InterSystems\IRIS\dev\java\lib\1.8\intersystems-jdbc-3.2.0.jar" -DgroupId="com.intersystems" -DartifactId=intersystems-jdbc -Dversion="3.2.0" -Dpackaging=jar -DgeneratePom=true
+```
 
 You might want to read the SUMMIT_README file in this directory for a bit more info on the basic concept
 
 ## Demo the Object Model
-1. Start VS Code in this direction. 
+1. Start VS Code in this directory. 
 2. Run `mvn compile exec:java -Dexec.mainClass="demo._Main"`
 3. Press 1 to create the participant schema.  Observe via DBeaver the schema that's created.
 4. Press 3 to populate the participants.  Observe how Address and PhoneNum are handled.
