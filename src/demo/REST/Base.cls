@@ -37,10 +37,11 @@ ClassMethod OnPreDispatch(pUrl As %String, pMethod As %String, ByRef pContinue A
         }
       }
       IF (tContent="") {
-        SET %request.Content = {}
+        SET %request.Content = ""
       } ELSE {
         SET tContent = $zconvert(tContent, "I", "UTF8")
-        SET %request.Content = ##class(%Library.DynamicObject).%FromJSON(tContent)
+        SET %request.Content = { "value":"" }
+        SET %request.Content.value = tContent
       }
     }
         

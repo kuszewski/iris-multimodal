@@ -5,16 +5,12 @@ Property Key As %VarString;
 
 Property Value As %VarString;
 
-/// Description
-Property Created As %Date [ InitialExpression = {$NOW()} ];
+Property Created As %Library.UTC [ InitialExpression = {##class(%Library.UTC).NowUTC()} ];
 
-/// Description
-Property LastUsed As %Date [ InitialExpression = {$NOW()} ];
+Property LastUsed As %Library.UTC [ InitialExpression = {##class(%Library.UTC).NowUTC()} ];
 
-/// Index for the key
 Index KeyIndex On Key [ IdKey ];
 
-/// Index for the last used time
 Index LastUsedIndex On LastUsed;
 
 Storage Default

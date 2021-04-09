@@ -1,7 +1,7 @@
 Class demo.SessionREST Extends Sample.REST.Base
 {
 
-Parameter Version = "1.0.0";
+Parameter Version = "1.0.1";
 
 XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 {
@@ -11,7 +11,7 @@ XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 <Route Url="/session/:id" Method="GET" Call="Get"/>
 <Route Url="/session/:id" Method="PUT" Call="Update"/>
 <Route Url="/session/:id" Method="DELETE" Call="Delete"/>
-<Route Url="/session/" Method="POST" Call="Create"/>
+<Route Url="/session/:id" Method="POST" Call="Create"/>
 </Routes>
 }
 
@@ -25,37 +25,29 @@ ClassMethod GetVersion() As %Status
   RETURN ..%ProcessResult($$$OK, info)
 }
 
-ClassMethod Get(key As %String) As %Status
+ClassMethod Get(id As %String) As %Status
 {
 	#dim tSC As %Status = $$$OK
     #dim e As %Exception.AbstractException
 
-    #; Set the response header to plain text
-    Set %response.ContentType = ..#CONTENTTYPEJSON
-
     Set a = ##class(demo.Session).%OpenId(id)
-
     If '$IsObject(a) Quit ..Http404()
 
-    Do a.%JSONExport()
-
+    WRITE a.Value
     Quit tSC
 }
 
-ClassMethod Create() As %Status
+ClassMethod Create(id As %String) As %Status
 {
 	#dim tSC As %Status = $$$OK
     #dim e As %Exception.AbstractException
+
     Set a = ##class(demo.Session).%New()
-    Set data=%request.Content
-
-
-    $$$TOE(tSC,a.%JSONImport(data))
+    Set a.Key = id
+    Set a.Value = %request.Content.value
     $$$TOE(tSC,a.%Save())
 
-    Set %response.Status = 204
-    Set %response.ContentType = ..#CONTENTTYPEJSON
-    Do a.%JSONExport()
+    Set %response.Status = 200
 
     Quit tSC
 }
@@ -64,18 +56,14 @@ ClassMethod Update(id As %String) As %Status
 {
 	#dim tSC As %Status = $$$OK
     #dim e As %Exception.AbstractException
+
     Set a = ##class(demo.Session).%OpenId(id)
     If '$IsObject(a) Return ..Http404()
-    Set data=%request.Content
 
-    $$$TOE(tSC,a.%JSONImport(data))
+    Set a.Value = %request.Content.value
     $$$TOE(tSC,a.%Save())
 
     Set %response.Status = 200
-
-    Set %response.ContentType = ..#CONTENTTYPEJSON
-    Do a.%JSONExport()
-
     Quit tSC
 }
 
@@ -84,15 +72,13 @@ ClassMethod Delete(id As %String) As %Status
 {
 	#dim tSC As %Status = $$$OK
     #dim e As %Exception.AbstractException
+
     Set a = ##class(demo.Session).%OpenId(id)
     If '$IsObject(a) Return ..Http404()
 
     $$$TOE(tSC,a.%DeleteId(id))
 
     Set %response.Status = 200
-
-    Set %response.ContentType = ..#CONTENTTYPEJSON
-
     Quit tSC
 }
 
