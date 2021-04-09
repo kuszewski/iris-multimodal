@@ -3,6 +3,15 @@
 ## Before you begin
 
 Create a Namespace - `Multimodel` - you won't need Interoperability to uncheck that
+This repository is a Java maven application.  You'll need both java 8 and maven installed.
+
+You also need to have the InterSystems IRIS Java client libraries as part of your maven cache.  If you haven't done so already, this can be done by a command similar to this:
+```
+mvn install:install-file -Dfile=c:\InterSystems\IRIS\dev\java\lib\JDK18\intersystems-jdbc-3.1.0.jar -DgroupId=com.intersystems -DartifactId=intersystems-jdbc -Dversion=3.1.0 -Dpackaging=jar -DgeneratePom=true
+```
+You need to do this for the JDBC and the XEP jar files.
+
+You might want to read the SUMMIT_README file in this directory for a bit more info on the basic concept
 
 ## Demo the Object Model
 1. Start VS Code in this direction. 
