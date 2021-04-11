@@ -1,9 +1,4 @@
 {
-    "patientId": 1,
-    "results": "COVID-19 Positive",
-    "assigner": {
-        "display": "Acme Healthcare"
-    },
     "specimenId": "022-988-9013-0",
     "accountNumber": "90000999",
     "labLocation": {

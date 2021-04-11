@@ -37,9 +37,6 @@ public class _Main
                     break;
                 case "2":
                     // Create Cohorts
-                    System.out.println("Creating Cohorts...");
-                    app.Step2_CreateCohorts();
-                    System.out.print("   ...Complete\n");
                     break;
                 case "3":
                     // Create Participants
@@ -58,8 +55,11 @@ public class _Main
                     break;
                 case "5":
                     // Simulate Testing
+                    System.out.print("How many test results would you like to generate? ");	
+                    int testnum = scanner.nextInt();
+
                     System.out.println("Simulating Testing...");
-                    app.Step5_SimulateTesting();
+                    app.Step5_SimulateTesting(testnum);
                     System.out.print("   ...Complete\n");
                     break;
                 case "6":

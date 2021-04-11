@@ -1,6 +1,5 @@
 demo/App.class
 demo/Address.class
-demo/Cohort.class
 demo/PhoneNum.class
 demo/_DummyDataGenerator.class
 demo/Participant.class

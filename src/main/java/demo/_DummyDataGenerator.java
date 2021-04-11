@@ -3,48 +3,10 @@ import java.util.Random;
 import java.sql.Date;
 
 import demo.Participant;
-import demo.Cohort;
 import demo.Address;
 import demo.PhoneNum;
 
 public class _DummyDataGenerator {
-	// Create dummy data
-	public static Cohort[] generateSampleCohortData() throws Exception 
-	{
-		Cohort[] data = new Cohort[PossibleDescriptions.length];
-		
-		for (int i=0; i < PossibleDescriptions.length; i++) 
-		{
-			data[i] = new Cohort(PossibleDescriptions[i]);
-		}
-
-        return data;
-	}
-
-	private static String[] PossibleDescriptions = {
-		"Mass. General Hospital",
-		"Florida Hospital",
-		"New York-Presbyterian Hospital",
-		"Jackson Memorial Hospital", 
-		"University of Pittsburgh Medical Center", 
-		"Montefiore Medical Center",
-		"The Cleveland Clinic",
-		"Methodist University Hospital",
-		"Barnes-Jewish Hospital",
-		"The Mount Sinai Medical Center",
-		"Norton Hospital",
-		"Erie County Medical Center",
-		"Memorial Hermann Southwest Hospital",
-		"UAB Hospital",
-		"Christiana Hospital",
-		"Beaumont Hospital",
-		"Spectrum Health Butterworth Hospital",
-		"Memorial Regional Hospital",
-		"Bergen Regional Medical Center",
-		"Beth Israel Medical Center",
-		"Ohio State University Hospital",
-		"Brookdale University Hospital and Medical Center"
-    };
     
 	// Create dummy data
 	public static Participant[] generateSampleParticipantData(int objectCount) throws Exception 
@@ -388,7 +350,8 @@ public class _DummyDataGenerator {
 	private static Boolean randomCovidResult()
 	{
 		Random rand = new Random();
-		return rand.nextBoolean();  // TODO - Weigh this?
+		int a = rand.nextInt(10);
+		return (a % 7)==0;
 	}
 
 	private static String randomSpeciminId() {
