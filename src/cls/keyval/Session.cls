@@ -1,4 +1,4 @@
-Class demo.Session Extends (%Persistent, %JSON.Adaptor, %Populate)
+Class demo.Session Extends (%Persistent)
 {
 
 Property Key As %VarString;

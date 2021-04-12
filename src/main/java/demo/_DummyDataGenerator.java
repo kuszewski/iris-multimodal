@@ -307,7 +307,7 @@ public class _DummyDataGenerator {
 	/* speciminId, accountNo, street, city, state, zip, 
 	patientId, gender,  collectedDate, receivedDate, enteredDate, reportedDate
 	result, result2, flag, reference, lab */
-	private static String testResultTemplate = "{\"specimenId\": \"%s\", \"accountNumber\": \"%s\", \"labLocation\": { \"nameLine1\": \"LabCorp Test Master\", \"streetAddress\": \"%s\", \"city\": \"%s\", \"state\": \"%s\", \"postalCode\": \"%s\" }, \"patientDetails\": { \"patientId\": %d, \"gender\": \"%s\", \"dob\": \"03/15/1959\" }, \"specimenDetails\": { \"collectedDate\": \"%s\", \"receivedDate\": \"%s\", \"enteredDate\": \"%s\", \"reportedDate\": \"%s\" }, \"clinicalInfo\": \"DETECTED\", \"orderedItems\": [ { \"test\": \"SARS-CoV-2\", \"result\": \"%s\", \"flag\": \"%s\", \"reference\": \"%s\", \"lab\": \"%s\" } ] }";
+	private static String testResultTemplate = "{\"specimenId\": \"%s\", \"accountNumber\": \"%s\", \"labLocation\": { \"nameLine1\": \"LabCorp Test Master\", \"streetAddress\": \"%s\", \"city\": \"%s\", \"state\": \"%s\", \"postalCode\": \"%s\" }, \"patientDetails\": { \"patientId\": %d, \"gender\": \"%s\", \"dob\": \"03/15/1959\" }, \"specimenDetails\": { \"collectedDate\": \"%s\", \"receivedDate\": \"%s\", \"enteredDate\": \"%s\", \"reportedDate\": \"%s\" }, \"clinicalInfo\": \"%s\", \"orderedItems\": [ { \"test\": \"SARS-CoV-2\", \"result\": \"%s\", \"flag\": \"%s\", \"reference\": \"%s\", \"lab\": \"%s\" } ] }";
 
 	public static String generateRandomTestResult(Integer id) {
 		String testDate = randomTestDate();
@@ -350,8 +350,9 @@ public class _DummyDataGenerator {
 	private static Boolean randomCovidResult()
 	{
 		Random rand = new Random();
-		int a = rand.nextInt(10);
-		return (a % 7)==0;
+		int a = rand.nextInt(15);
+		Boolean b = (a % 9)==0;
+		return b;
 	}
 
 	private static String randomSpeciminId() {

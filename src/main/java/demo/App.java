@@ -151,7 +151,7 @@ public class App
 
     // Database connection parameters.
     static public String _hostname = "localhost";
-    static public int _port = 1972;
+    static public int _port = 51773;
     static public String _namespace = "MULTIMODEL";
     static public String _user = "_SYSTEM";
     static public String _password = "SYS";

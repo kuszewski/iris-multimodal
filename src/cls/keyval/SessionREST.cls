@@ -1,8 +1,6 @@
 Class demo.SessionREST Extends Sample.REST.Base
 {
 
-Parameter Version = "1.0.1";
-
 XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 {
 <Routes>
@@ -18,9 +16,8 @@ XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 /// REST general information
 ClassMethod GetVersion() As %Status
 {
-  SET version = ..#Version
   SET info = {
-    "version": (version)
+    "version": "1.0.0"
   }
   RETURN ..%ProcessResult($$$OK, info)
 }
@@ -28,58 +25,57 @@ ClassMethod GetVersion() As %Status
 ClassMethod Get(id As %String) As %Status
 {
 	#dim tSC As %Status = $$$OK
-    #dim e As %Exception.AbstractException
+  #dim e As %Exception.AbstractException
 
-    Set a = ##class(demo.Session).%OpenId(id)
-    If '$IsObject(a) Quit ..Http404()
+  Set a = ##class(demo.Session).%OpenId(id)
+  If '$IsObject(a) Quit ..Http404()
 
-    WRITE a.Value
-    Quit tSC
+  WRITE a.Value
+  Quit tSC
 }
 
 ClassMethod Create(id As %String) As %Status
 {
 	#dim tSC As %Status = $$$OK
-    #dim e As %Exception.AbstractException
+  #dim e As %Exception.AbstractException
 
-    Set a = ##class(demo.Session).%New()
-    Set a.Key = id
-    Set a.Value = %request.Content.value
-    $$$TOE(tSC,a.%Save())
+  Set a = ##class(demo.Session).%New()
+  Set a.Key = id
+  Set a.Value = %request.Content.value
+  $$$TOE(tSC,a.%Save())
 
-    Set %response.Status = 200
-
-    Quit tSC
+  Set %response.Status = 200
+  Quit tSC
 }
 
 ClassMethod Update(id As %String) As %Status
 {
 	#dim tSC As %Status = $$$OK
-    #dim e As %Exception.AbstractException
+  #dim e As %Exception.AbstractException
 
-    Set a = ##class(demo.Session).%OpenId(id)
-    If '$IsObject(a) Return ..Http404()
+  Set a = ##class(demo.Session).%OpenId(id)
+  If '$IsObject(a) Return ..Http404()
 
-    Set a.Value = %request.Content.value
-    $$$TOE(tSC,a.%Save())
+  Set a.Value = %request.Content.value
+  $$$TOE(tSC,a.%Save())
 
-    Set %response.Status = 200
-    Quit tSC
+  Set %response.Status = 200
+  Quit tSC
 }
 
 /// Delete a record with id in Sample.Person
 ClassMethod Delete(id As %String) As %Status
 {
 	#dim tSC As %Status = $$$OK
-    #dim e As %Exception.AbstractException
+  #dim e As %Exception.AbstractException
 
-    Set a = ##class(demo.Session).%OpenId(id)
-    If '$IsObject(a) Return ..Http404()
+  Set a = ##class(demo.Session).%OpenId(id)
+  If '$IsObject(a) Return ..Http404()
 
-    $$$TOE(tSC,a.%DeleteId(id))
+  $$$TOE(tSC,a.%DeleteId(id))
 
-    Set %response.Status = 200
-    Quit tSC
+  Set %response.Status = 200
+  Quit tSC
 }
 
 ClassMethod SwaggerSpec() As %Status
